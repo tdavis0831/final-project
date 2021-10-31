@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Depression{% endblock %}
+
+
+{% block body %}
+  <h1>Depression</h1>
+
+ 
+  
+  
+  {% for i in question %}
+  <ul>
+    <li>
+     
+        {{ i }}
+        <form action="" method="POST">
+          <p>
+            zero being none at all, 4 being all the time or often:
+            <select name="rating">
+              <option value="">Select Choice</option>
+              {% for num in range(5) %}
+                <option value="{{ num }}">{{ num }}</option>
+              {% endfor %}
+            </select>
+          </p>
+          
+        
+      
+    </li>
+  </ul>
+  {% endfor %}
+  <p><input type="submit"></p>
+</form>
+  
+{% endblock %}

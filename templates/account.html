@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{%block title%}Welcome user {% endblock %}
+
+{%block body %}
+
+<h1>Welcome to your personal page</h1>
+<h2>To take an assessment, please click any of the questionaires listed</h2>
+
+<h2>Questionaires</h2>
+<ul>
+  <li><a href="/anxiety">Generalized Anxiety Disorder (GAD) -7 Screening Tool</a></li>
+  <li><a href="/depression">Patient Health Questionnaire (PHQ-9) Depression Screening</a></li>
+  <li><a href="/insomnia">Insomnia Severity Index</a></li>
+</ul>
+
+
+{% endblock %}
