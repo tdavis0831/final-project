@@ -1,20 +1,18 @@
-import googlemaps, requests, json
+import googlemaps
 from datetime import datetime
-
-gmaps = googlemaps.Client(key="GOOGLEPLACES_KEY")
-
-url="https://maps.googleapis.com/maps/api/place/textsearch/json?"
-
-query = input('Search query: ')
-
-r = requests.get(url + 'query=' + query +
-                        '&key=' + api_key)
+import os 
 
 
-test_places= gmaps.text_search(
-    "therapist",
+gmaps = googlemaps.Client(key=os.environ['GOOGLEPLACES_KEY'])
+
+
+
+
+
+test_places= gmaps.find_place(
+    "restaurant",
     "textquery",
-    fields= ["name", "formatted_address"],
-    location_bias="ipbias",
+    fields=["business_status", "geometry/location", "place_id", "name"],
+    location_bias="point:90,90",
     )
 print(test_places)
