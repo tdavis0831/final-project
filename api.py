@@ -12,7 +12,7 @@ api_key = os.environ['GOOGLEPLACES_KEY']
 url = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
   
 #  string on which to search 
-query = input('Search query: ') 
+query = "therapist"
   
 # get method of requests module 
 # return response object 
