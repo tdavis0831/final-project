@@ -7,16 +7,16 @@
 
  
   
-  
+  <form action="/depression_answers" method="post">
   {% for i in question %}
   <ul>
     <li>
      
-        {{ i }}
-        <form action="" method="POST">
+        {{ i.question }}
+     
           <p>
             zero being none at all, 4 being all the time or often:
-            <select name="rating">
+            <select name="{{i.question_id}}" id="danswer">
               <option value="">Select Choice</option>
               {% for num in range(5) %}
                 <option value="{{ num }}">{{ num }}</option>

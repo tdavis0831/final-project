@@ -82,6 +82,28 @@ def process_login():
 
 
 
+
+
+@app.route("/anxiety")
+def anxiety_questionnaire():
+
+    if "user_id" not in session:
+        return redirect("/") 
+
+    anxiety_questions = crud.get_anxiety_questions()
+    return render_template("anxiety.html", question=anxiety_questions)
+
+@app.route("/depression")
+def depression_questionnaire():
+    
+    if "user_id" not in session:
+        return redirect("/") 
+    depression_questions = crud.get_depression_questions()
+
+    return render_template("depression.html", question=depression_questions)
+
+
+
 @app.route("/answers", methods=["POST"])
 def get_user_answers():
 
@@ -128,15 +150,6 @@ def get_user_answers():
 
 
 
-@app.route("/anxiety")
-def anxiety_questionnaire():
-
-    if "user_id" not in session:
-        return redirect("/") 
-
-    anxiety_questions = crud.get_anxiety_questions()
-    return render_template("anxiety.html", question=anxiety_questions)
-
 
 
 
@@ -145,12 +158,64 @@ def anxiety_questionnaire():
 
 
 
-@app.route("/depression")
-def depression_questionnaire():
 
-    depression_questions = crud.get_depression_questions()
 
-    return render_template("depression.html", question=depression_questions)
+
+
+
+@app.route("/depression_answers", methods=["POST"])
+def get_user_answers_dep():
+
+    user_key=[]
+    user_values=[]
+
+    # session["user_id"] = user.user_id
+    # answers = request.form.getlist("answer")  #gets list of answers
+    
+    question_info={}
+    fk_user_id= session["user_id"] 
+
+    for k,v in request.form.items():
+        question_info[k]= v 
+
+   
+    fk_test_question_id=list(question_info.keys())
+    fk_test_question_id=[int(i) for i in fk_test_question_id]
+
+
+
+
+    user_test_question_answer=list(question_info.values())
+    user_test_question_answer=[int(i) for i in user_test_question_answer]
+
+    
+
+
+    
+    # print(user.user_id)
+
+    print(fk_test_question_id)
+    print(user_test_question_answer)
+    print(session["user_id"])
+    answers=crud.user_total(user_test_question_answer, fk_test_question_id,fk_user_id)
+    baselines=crud.get_rubric_depression()
+    print(baselines)
+    # return answers
+        
+    
+    # print("added")
+    return render_template("dresults.html", answers=answers, baselines=baselines)
+
+
+
+
+
+
+
+
+
+
+    
 
 @app.route("/insomnia")
 def insomnia_questionnaire():
