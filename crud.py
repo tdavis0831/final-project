@@ -89,6 +89,14 @@ def get_depression_questions():
     
     return depression_questions
 
+def get_insomnia_questions():
+    insomnia_questions=[]
+    question_set=db.session.query(TestQuestion).filter(TestQuestion.fk_test_id ==3).all() 
+
+    for test_question in question_set:
+        insomnia_questions.append(test_question.question)
+    
+    return insomnia_questions
 def get_rubric():
     rubrics= db.session.query(TestRubric).filter(TestRubric.fk_test_id==1).first()
 
@@ -100,6 +108,13 @@ def get_rubric_depression():
 
     return rubrics.test_rubric_healthy_baseline
 
+
+def get_rubric_insomnia():
+    rubrics= db.session.query(TestRubric).filter(TestRubric.fk_test_id==3).first()
+
+    return rubrics.test_rubric_healthy_baseline
+
+    
 def user_answer(user_test_question_answer, fk_test_question_id,fk_user_id):
     
     user_answer=UserTestQuestionAnswer(user_test_question_answer=user_test_question_answer, 
@@ -123,14 +138,7 @@ def user_total(answer_list, question_id_list,fk_user_id):
 
 
 
-def get_insomnia_questions():
-    question_list=[]
-    question_set=db.session.query(TestQuestion).filter(TestQuestion.fk_test_id ==3).all() 
 
-    for test_question in question_set:
-        question_list.append(test_question.question.question)
-    
-    return question_list
  
 def get_user_by_email(email):
     """Return a user by email."""

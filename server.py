@@ -214,37 +214,60 @@ def get_user_answers_dep():
 
 
 
-
     
-
 @app.route("/insomnia")
 def insomnia_questionnaire():
-
+    
+    if "user_id" not in session:
+        return redirect("/") 
     insomnia_questions = crud.get_insomnia_questions()
 
     return render_template("insomnia.html", question=insomnia_questions)
 
-# @app.route("/users", methods=["POST"])
-# def register_user():
-#     """Create a new user."""
 
-#     email = request.form.get("email")
-#     password = request.form.get("password")
 
-#     user = crud.get_user_by_email(email)
-#     if user:
-#         flash("Cannot create an account with that email. Try again.")
-#     else:
-#         crud.create_user(email, password)
-#         flash("Account created! Please log in.")
+@app.route("/insomnia_answers", methods=["POST"])
+def get_user_answers_ins():
 
-# @app.route("?", methods=["POST"])
+    user_key=[]
+    user_values=[]
 
-# def user_answer("""TESTQUESTION ID"""):
+    # session["user_id"] = user.user_id
+    # answers = request.form.getlist("answer")  #gets list of answers
+    
+    question_info={}
+    fk_user_id= session["user_id"] 
 
-#     emailed_logged_in = session.get("user_email")
-#     answer_by_user = request.form.get("answer")
+    for k,v in request.form.items():
+        question_info[k]= v 
 
+   
+    fk_test_question_id=list(question_info.keys())
+    fk_test_question_id=[int(i) for i in fk_test_question_id]
+
+
+
+
+    user_test_question_answer=list(question_info.values())
+    user_test_question_answer=[int(i) for i in user_test_question_answer]
+
+    
+
+
+    
+    # print(user.user_id)
+
+    print(fk_test_question_id)
+    print(user_test_question_answer)
+    print(session["user_id"])
+    answers=crud.user_total(user_test_question_answer, fk_test_question_id,fk_user_id)
+    baselines=crud.get_rubric_insomnia()
+    print(baselines)
+    # return answers
+        
+    
+    # print("added")
+    return render_template("iresults.html", answers=answers, baselines=baselines)
 
 
 
