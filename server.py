@@ -26,49 +26,36 @@ def create_account():
 
 
 
-
-    
-
-    # user_answer= crud.user_total()
-
-    return redirect("/results")
-
-
-# @app.route("/answers", methods=["GET"])
-# def show_results():
-#     answers = request.form.getlist("answer")
-
-
-#     return render_template("results.html", answers=answers)
-    
-
-
-#     return render_template("results.html", user_answer=user_answer)
-
-
-
 @app.route("/users", methods=["POST"])
 def register_user():
     """Create a new user."""
 
     email = request.form.get("email")
     password = request.form.get("password")
+    name= request.form.get("name")
 
     user = crud.get_user_by_email(email)
+    
     if user:
         flash("Email already associated with account, try logging in")
     else:
-        crud.create_user(email, password)
+        crud.create_user(email, password, name)
         flash("Account created! Please log in.")
 
     return redirect("/")
 
-@app.route("/login", methods=["POST"])
+
+
+
+
+
+@app.route("/login", methods=["POST", "GET"])
 def process_login():
     """Process user login."""
 
     email = request.form.get("email")
     password = request.form.get("password")
+    name=request.form.get("name")
 
     user = crud.get_user_by_email(email)
     if not user or user.password != password:
@@ -76,9 +63,11 @@ def process_login():
     else:
         # Log in user by storing the user's id in session
         session["user_id"] = user.user_id
+        session["name"] = user.name
+        
         
 
-    return render_template("user-profile.html")
+    return render_template("user-profile.html", user=user)
 
 
 
@@ -151,21 +140,12 @@ def get_user_answers():
 
 
 
-
-
-    
-    
-
-
-
-
-
-
-
-
 @app.route("/depression_answers", methods=["POST"])
 def get_user_answers_dep():
-
+    
+    
+    if "user_id" not in session:
+        return redirect("/") 
     user_key=[]
     user_values=[]
 
@@ -232,9 +212,6 @@ def get_user_answers_ins():
     user_key=[]
     user_values=[]
 
-    # session["user_id"] = user.user_id
-    # answers = request.form.getlist("answer")  #gets list of answers
-    
     question_info={}
     fk_user_id= session["user_id"] 
 
@@ -250,10 +227,6 @@ def get_user_answers_ins():
 
     user_test_question_answer=list(question_info.values())
     user_test_question_answer=[int(i) for i in user_test_question_answer]
-
-    
-
-
     
     # print(user.user_id)
 
@@ -273,6 +246,12 @@ def get_user_answers_ins():
 
 
 
+@app.route("/map")
+def get_map():
+
+    maps=api.map_this()
+
+    return render_template("map.html", maps=maps)
 
 if __name__ == "__main__":
     # DebugToolbarExtension(app)

@@ -52,5 +52,6 @@ for quiz in screenings_data:
 for n in range(3):
     email = f"user{n}@test.com"  
     password = "test"
+    name= f"testusername{n}"
 
-    user = crud.create_user(email, password)
+    user = crud.create_user(email, password, name)
