@@ -243,7 +243,17 @@ def get_user_answers_ins():
     return render_template("iresults.html", answers=answers, baselines=baselines)
 
 
+@app.route('/logout')
+def process_logout():
+    """Remove user from session"""
 
+    if 'user' in session:
+        session.pop('user', None)
+        flash('You have successfully logged out.')
+    else:
+        flash('You are not logged in.')
+
+    return render_template('homepage.html')
 
 
 @app.route("/map")
