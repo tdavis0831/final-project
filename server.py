@@ -80,6 +80,8 @@ def anxiety_questionnaire():
         return redirect("/") 
 
     anxiety_questions = crud.get_anxiety_questions()
+    
+    
     return render_template("anxiety.html", question=anxiety_questions)
 
 @app.route("/depression")
