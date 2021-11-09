@@ -135,8 +135,13 @@ def user_total(answer_list, question_id_list,fk_user_id):
     return user_sum
 
 
-
-
+def check_for_answer(question, user):
+    question_id_check= db.session.query(UserTestQuestionAnswer).filter(
+        UserTestQuestionAnswer.fk_test_question_id == question.test_question_id 
+        ).filter(
+         user.user_id == UserTestQuestionAnswer.fk_user_id
+        ).all()
+    return len(question_id_check) > 0
 
 
  
