@@ -1,65 +1,29 @@
-import googlemaps
-from datetime import datetime
-import os 
+import requests
+import json
+from pprint import pprint
 
-  
-# importing required modules 
-import requests, json 
+myCity = input("What is your city? ")
+FoodChoice = "Therapist"
 
-api_key = os.environ['GOOGLEPLACES_KEY']
-  
-# url variable store url 
-url = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
-  
-#  string on which to search 
-query = "therapist"
-  
-# get method of requests module 
-# return response object 
-r = requests.get(url + 'query=' + query +
-                        '&key=' + api_key) 
-  
-# json method of response object convert 
-#  json format data into python format data 
-x = r.json() 
-  
-y = x['results'] 
-  
+API_key = 'Your API Key'
+client_id = 'Your Client ID'
+ENDPOINT = 'https://api.yelp.com/v3/businesses/search'
+HEADERS = {'Authorization': 'Bearer'
+}
 
-for i in range(len(y)): 
-    list1 = []
-    list2= []
-    # Print value corresponding to the 
-    # 'name' key at the index of y 
-    list1.append(y[i]['name'])
-    print(list1)
+PARAMETERS = {
+	'term' : FoodChoice,
+	'limit' : 10,
+	'location' : myCity,
+	'radius' : 10000
+}
 
-    list2.append(y[i]['formatted_address'])
-    print(list2)
-    # print(y[i]['formatted_address'])
+response = requests.get(url = ENDPOINT, params = PARAMETERS, headers = HEADERS)
+data = response.json()
 
 
-    
-# import requests
-
-# url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJN1t_tDeuEmsRUsoyG83frY4&fields=name%2Crating%2Cformatted_phone_number&key={api_key}"
-
-# payload={}
-# headers = {}
-
-# response = requests.request("GET", url, headers=headers, data=payload)
-
-# print(response.text)
-
-
-
-
-
-
-# test_places= gmaps.find_place(
-#     "restaurant",
-#     "textquery",
-#     fields=["business_status", "geometry/location", "place_id", "name"],
-#     location_bias="point:90,90",
-#     )
-# print(test_places)
+for place in data['businesses']:
+ 
+	print("")
+	print(place['name'])
+	print(place['location']['display_address'])
