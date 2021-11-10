@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, flash, session, redirect
 from model import connect_to_db
 import crud
+import api
 
 from jinja2 import StrictUndefined
 
@@ -192,6 +193,11 @@ def get_user_answers_dep():
 
 
 
+@app.route("/therapist")
+def therapist_list():
+    provider_list = api.get_therapist_info()
+    print(provider_list)
+    return render_template("therapist.html", provider_list=provider_list)
 
 
 
