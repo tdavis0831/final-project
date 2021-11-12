@@ -190,12 +190,18 @@ def get_user_answers_dep():
     return render_template("dresults.html", answers=answers, baselines=baselines)
 
 
-
+@app.route('/findcity')
+def find_city():
+    return render_template("findcity.html")
 
 
 @app.route("/therapist")
 def therapist_list():
+    myCity= request.form.get("location")
+    print(myCity)
+ 
     provider_list = api.get_therapist_info()
+
     print(provider_list)
     print(type(provider_list))
     return render_template("therapist.html", provider_list=provider_list)
