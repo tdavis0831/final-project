@@ -8,7 +8,7 @@ FoodChoice = "Therapist"
 API_key = 'Your API Key'
 client_id = 'Your Client ID'
 ENDPOINT = 'https://api.yelp.com/v3/businesses/search'
-HEADERS = {'Authorization': 'Bearer'
+HEADERS = {'Authorization': 'Bearer '
 }
 
 PARAMETERS = {
@@ -38,8 +38,8 @@ def get_therapist_info():
   
 		print("")
 		provider_dict['name']=(place['name'])
-		provider_dict['other']=( place['phone'], place['location']['display_address'])
-
+		provider_dict['other']=( place['phone'])
+		provider_dict['address']=(place['location']['display_address'])
 		provider_list.append(provider_dict)
 	print(provider_list)
 	return provider_list
