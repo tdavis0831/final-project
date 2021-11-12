@@ -197,6 +197,7 @@ def get_user_answers_dep():
 def therapist_list():
     provider_list = api.get_therapist_info()
     print(provider_list)
+    print(type(provider_list))
     return render_template("therapist.html", provider_list=provider_list)
 
 
