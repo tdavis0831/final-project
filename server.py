@@ -190,18 +190,12 @@ def get_user_answers_dep():
     return render_template("dresults.html", answers=answers, baselines=baselines)
 
 
-@app.route('/findcity')
-def find_city():
-    return render_template("findcity.html")
+
 
 
 @app.route("/therapist")
 def therapist_list():
-    myCity= request.form.get("location")
-    print(myCity)
- 
     provider_list = api.get_therapist_info()
-
     print(provider_list)
     print(type(provider_list))
     return render_template("therapist.html", provider_list=provider_list)
@@ -271,12 +265,12 @@ def process_logout():
     return render_template('homepage.html')
 
 
-@app.route("/map")
-def get_map():
+# @app.route("/map")
+# def get_map():
 
-    maps=api.map_this()
+#     maps=api.map_this()
 
-    return render_template("map.html", maps=maps)
+#     return render_template("map.html", maps=maps)
 
 if __name__ == "__main__":
     # DebugToolbarExtension(app)
