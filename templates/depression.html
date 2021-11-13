@@ -9,23 +9,19 @@
   
   <form action="/depression_answers" method="post">
   {% for i in question %}
-  <ul>
-    <li>
-     
+
+  <label for="dquestions">
+   
         {{ i.question }}
-     
-          <p>
+  </label>
             zero being none at all, 4 being all the time or often:
-            <select name="{{i.question_id}}" id="danswer">
+            <select name="{{i.question_id}}" id="aanswers" required>
               <option value="">Select Choice</option>
               {% for num in range(5) %}
                 <option value="{{ num }}">{{ num }}</option>
               {% endfor %}
             </select>
           </p>
-          
-        
-      
     </li>
   </ul>
   {% endfor %}
