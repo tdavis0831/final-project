@@ -191,14 +191,21 @@ def get_user_answers_dep():
 
 
 
+@app.route("/therapist", methods=["POST"])
+def find_therapist():
+    city= request.form.get("city")
+    provider_list = api.get_therapist_info(city)
+    return render_template("therapist.html", provider_list=provider_list)
+
+
 
 
 @app.route("/therapist")
 def therapist_list():
-    provider_list = api.get_therapist_info()
-    print(provider_list)
-    print(type(provider_list))
-    return render_template("therapist.html", provider_list=provider_list)
+    # provider_list = api.get_therapist_info()
+    # print(provider_list)
+    # print(type(provider_list))
+    return render_template("therapist.html", provider_list=[])
 
 
 
