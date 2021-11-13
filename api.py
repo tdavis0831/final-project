@@ -9,7 +9,7 @@ def get_therapist_info(city):
 	API_key = 'Your API Key'
 	client_id = 'Your Client ID'
 	ENDPOINT = 'https://api.yelp.com/v3/businesses/search'
-	HEADERS = {'Authorization': 'Bearer'}
+	HEADERS = {'Authorization': 'Bearer '}
 
 	PARAMETERS = {
 		'term' : FoodChoice,
@@ -19,7 +19,7 @@ def get_therapist_info(city):
 	}
 
 	response = requests.get(url = ENDPOINT, params = PARAMETERS, headers = HEADERS)
-	data = response.json(
+	data = response.json()
 
 
 	provider_list=[]
