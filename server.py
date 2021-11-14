@@ -140,9 +140,6 @@ def get_user_answers():
     return render_template("results.html", answers=answers, baselines=baselines)
 
 
-
-
-
 @app.route("/depression_answers", methods=["POST"])
 def get_user_answers_dep():
     
@@ -245,7 +242,7 @@ def get_user_answers_ins():
     user_test_question_answer=[int(i) for i in user_test_question_answer]
     
     # print(user.user_id)
-
+    print(question_info)
     print(fk_test_question_id)
     print(user_test_question_answer)
     print(session["user_id"])

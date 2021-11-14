@@ -1,19 +1,13 @@
-{% extends 'base.html' %}
-{% block title %}Insomnia{% endblock %}
-
 
 {% block body %}
- 
-
-{% block body %}
-<h1>Depression</h1>
+<h1>insomnia</h1>
 
 
 
 <form action="/insomnia_answers" method="post">
 {% for i in question %}
 
-<label for="iquestions">
+<label for="dquestions">
  
       {{ i.question }}
 </label>

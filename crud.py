@@ -117,9 +117,12 @@ def get_rubric_insomnia():
 
     
 def user_answer(user_test_question_answer, fk_test_question_id,fk_user_id):
+
+    
     
     user_answer=UserTestQuestionAnswer(user_test_question_answer=user_test_question_answer, 
                                         fk_test_question_id=fk_test_question_id ,fk_user_id=fk_user_id)
+
 
     db.session.add(user_answer)
     db.session.commit()
@@ -131,10 +134,17 @@ def user_total(answer_list, question_id_list,fk_user_id):
     for i in range(len(answer_list)):
         user_sum+=answer_list[i]
 
-        user_answer(answer_list[i], question_id_list[i], fk_user_id)
 
     return user_sum
 
+def user_nums(answer_list, question_id_list,fk_user_id):
+    answer_info=[]
+    for i in range(len(answer_list)):
+       answer_info.append(answer_list[i])
+
+        
+
+    return answer_info
 
 def check_for_answer(question, user):
     question_id_check= db.session.query(UserTestQuestionAnswer).filter(
