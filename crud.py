@@ -81,6 +81,14 @@ def get_anxiety_questions():
     
     return anxiety_questions
 
+# def get_anxiety_answers():
+#     anxiety_answers_list=[]
+#     anxiety_answers=db.session.query(UserTestQuestionAnswer).filter(UserTestQuestionAnswer.fk_test_question_id > 0).all()
+    
+#     for answer in anxiety_answers:
+#         anxiety_answers_list.append(answer.question)
+#     return anxiety_answers_list
+
 def get_depression_questions():
     depression_questions=[]
     question_set=db.session.query(TestQuestion).filter(TestQuestion.fk_test_id == 2).all() 
