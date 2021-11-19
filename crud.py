@@ -123,6 +123,11 @@ def get_rubric_insomnia():
 
     return rubrics.test_rubric_healthy_baseline
 
+def get_anxiety_results():
+    a_results= db.session.query(UserTestQuestionAnswer).filter(UserTestQuestionAnswer.fk_test_id == 1).all()
+
+    print(a_results)
+
     
 def user_answer(user_test_question_answer, fk_test_question_id,fk_user_id):
 
