@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{%block title%}Results page {% endblock %}
+
+{%block body %}
+
+<h1>See how you scored</h1>
+
+
+  <ul>
+    <li>
+      <h1>the total score of your answers was  {{ answers }}</h1>
+        
+         
+      <h2> A healthy score for this test is {{baselines}} or below</h2>
+
+      <p>To find a list of mental healt providers in your area, please 
+        click <a href="/therapist" target="_blank">HERE</a>
+      </p>
+
+      <a href="/login">Return Home</a>        
+              
+
+
+{% endblock %}

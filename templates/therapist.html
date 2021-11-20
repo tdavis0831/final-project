@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}provider list{% endblock %}
+
+
+{% block body %}
+
+
+<form action="/therapist" method="POST">
+	<p>
+	  What city, state would you like to search? <input type="text" name="city">
+
+  
+	  <p>
+		<input type="submit">
+	  </p>
+	</form>
+
+
+
+  <h1>provider list</h1>
+
+ 
+  
+  <dl>
+    {% for provider in provider_list %}
+        <dt>{{ provider['name'] }}</dt>
+        <dd>{{  provider['other'] }}</dd>
+        <dd>{{  provider['address'] }}</dd>
+        
+
+      
+
+    {% endfor %}
+    </dl>
+        
+      
+    </li>
+  </ul>
+
+
+{% endblock %}
