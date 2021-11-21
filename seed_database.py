@@ -53,5 +53,5 @@ for n in range(3):
     email = f"user{n}@test.com"  
     password = "test"
     name= f"testusername{n}"
-
-    user = crud.create_user(email, password, name)
+    lname=f"testlastname{n}"
+    user = crud.create_user(email, password, name, lname)

@@ -34,13 +34,14 @@ def register_user():
     email = request.form.get("email")
     password = request.form.get("password")
     name= request.form.get("name")
+    lname=request.form.get("lname")
 
     user = crud.get_user_by_email(email)
     
     if user:
         flash("Email already associated with account, try logging in")
     else:
-        crud.create_user(email, password, name)
+        crud.create_user(email, password, name, lname)
         flash("Account created! Please log in.")
 
     return redirect("/")
@@ -57,6 +58,7 @@ def process_login():
     email = request.form.get("email")
     password = request.form.get("password")
     name=request.form.get("name")
+    lname=request.form.get("lname")
 
     user = crud.get_user_by_email(email)
     if not user or user.password != password:

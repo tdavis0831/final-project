@@ -15,10 +15,10 @@ def create_rubric(test_rubric_healthy_baseline, test):
 
 
 
-def create_user(email, password, name):
+def create_user(email, password, name, lname):
     #creates a user
 
-    user=User(email=email, password=password, name=name)
+    user=User(email=email, password=password, name=name, lname=lname)
     
     db.session.add(user)
     db.session.commit()
