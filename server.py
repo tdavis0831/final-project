@@ -185,6 +185,8 @@ def get_user_answers_dep():
     print(fk_test_question_id)
     print(user_test_question_answer)
     print(session["user_id"])
+    individual_answers=crud.user_nums(user_test_question_answer, fk_test_question_id,fk_user_id)
+    depression_questions=crud.get_depression_questions()
     answers=crud.user_total(user_test_question_answer, fk_test_question_id,fk_user_id)
     baselines=crud.get_rubric_depression()
     print(baselines)
@@ -192,7 +194,7 @@ def get_user_answers_dep():
         
     
     # print("added")
-    return render_template("dresults.html", answers=answers, baselines=baselines)
+    return render_template("dresults.html", answers=answers, baselines=baselines, depression_questions=depression_questions, individual_answers=individual_answers)
 
 
 
@@ -254,6 +256,8 @@ def get_user_answers_ins():
     print(fk_test_question_id)
     print(user_test_question_answer)
     print(session["user_id"])
+    individual_answers=crud.user_nums(user_test_question_answer, fk_test_question_id,fk_user_id)
+    insomnia_questions=crud.get_insomnia_questions()
     answers=crud.user_total(user_test_question_answer, fk_test_question_id,fk_user_id)
     baselines=crud.get_rubric_insomnia()
     print(baselines)
@@ -261,7 +265,7 @@ def get_user_answers_ins():
         
     
     # print("added")
-    return render_template("iresults.html", answers=answers, baselines=baselines)
+    return render_template("iresults.html", answers=answers, baselines=baselines, insomnia_questions=insomnia_questions, individual_answers=individual_answers)
 
 
 @app.route('/logout')

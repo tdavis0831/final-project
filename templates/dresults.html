@@ -13,7 +13,22 @@
         
          
       <h2> A healthy score for this test is {{baselines}} or below</h2>
-
+      <table style="width:100px; border: 1px solid black">
+        <tr>
+            {% for q in depression_questions %}
+                <th>{{ q.question }}</th>
+            {% endfor %}
+        </tr>
+        
+               
+                  <tr>
+                        {% for i in individual_answers %}
+                            <td>{{ i }}</td>
+                        {% endfor %}
+                   </tr>
+              
+        
+        </table>
       <p>To find a list of mental healt providers in your area, please 
         click <a href="/therapist" target="_blank">HERE</a>
       </p>
