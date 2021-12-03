@@ -7,7 +7,7 @@ import api
 from jinja2 import StrictUndefined
 
 app = Flask(__name__)
-app.secret_key = "fvdrgdtuntryktuit8578r6bw345vwv"
+app.secret_key = ""
 app.jinja_env.undefined = StrictUndefined
 
 
@@ -207,6 +207,13 @@ def find_therapist():
 
 
 
+@app.route("/therapist")
+def therapist_list():
+    # provider_list = api.get_therapist_info()
+    # print(provider_list)
+    # print(type(provider_list))
+    return render_template("therapist.html", provider_list=[])
+
 
 
 
@@ -274,6 +281,12 @@ def process_logout():
     return render_template('homepage.html')
 
 
+# @app.route("/map")
+# def get_map():
+
+#     maps=api.map_this()
+
+#     return render_template("map.html", maps=maps)
 
 if __name__ == "__main__":
     # DebugToolbarExtension(app)

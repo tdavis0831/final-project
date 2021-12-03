@@ -6,7 +6,7 @@ def get_therapist_info(city):
 	
 	textChoice = "Therapist"
 
-	API_key = 'Your API Key'
+	API_key = ''
 	client_id = 'Your Client ID'
 	ENDPOINT = 'https://api.yelp.com/v3/businesses/search'
 	HEADERS = {'Authorization': 'Bearer '}
