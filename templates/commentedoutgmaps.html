@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    
+    <body>
+        <div data-role="page" id="map_page">
+            <div data-role="header">  <!-- setting heading-->
+                <h1>Get Directions</h1> 
+            </div>
+           
+                    <div id="mapdiv" style="height:300px;"></div>
+                     From: <input type="text" id="from" >
+                     <br/><br/>
+                     To:  <input type="text" id="to">
+                    <br/><br/><br/>
+                    <a data-icon="search" data-role="button" href="#" id="submit">Get directions</a> <!-- setting  getdirections heading-->
+                   
+                
+                <div id="results" style="display:none;">
+                    <div id="directions"></div>
+                </div>
+            </div>
+       
+       
+        
+                <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+                 
+                 <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCM5ScAXAfPG8HGygbIJVp5cGT5FgbNxj0&v=3&sensor=false&language=en"></script>
+                 <script>
+                 //all scrs are needed to implement for page (jquery and maps)
+                     var directionDisplay,
+                         directionsService = new google.maps.DirectionsService(), //this sets the variables display and service as newinstances of the directions and the map
+                         map;
+         
+                     function startMap() //function that calls the map initially to page
+                     {
+                         showDirections = new google.maps.DirectionsRenderer();
+                         var initialMapView = new google.maps.LatLng(40.574970,-73.980180); //sets the start view (eldorado arcade-mr robot)
+         
+                         var mapDirectionOptions = {    //options filled in per maps api needs
+                             zoom:7,
+                             mapTypeId: google.maps.MapTypeId.ROADMAP, //chose roadmap as the type
+                             center: initialMapView //want the inivial view to be centr
+                         }
+         
+                         map = new google.maps.Map(document.getElementById("mapdiv"), mapDirectionOptions);   //displays map by calling the mapdiv id to render the map
+                         showDirections.setMap(map);
+                         showDirections.setPanel(document.getElementById("directions")); //call to render directions
+                     }
+         
+                     function calcRoute() 
+                     {
+                         
+                             start = $("#from").val(),    //allows user input to be taken for start and stop
+                             end = $("#to").val();
+         
+                        
+                        
+                             var request = {     //all information provided by gmaps api- choose driving directions
+                                 origin:start,  //pulls user input in 
+                                 destination:end,
+                      provideRouteAlternatives:true,
+                                 travelMode: google.maps.DirectionsTravelMode.DRIVING 
+                             };
+         
+                             directionsService.route(request, function(response, status) {   //calls variable for dispay and checks to see if the status of 
+                                 if (status == google.maps.DirectionsStatus.OK) {          //api request goes through and if so, to display results 
+                                     showDirections.setDirections(response); 
+                                     $("#results").show();
+                                     
+                                         var myRoute = response.routes[0].legs[0];  //routing the reponse ontains an array of DirectionsLeg objects, 
+                         dist.value = response.rows[0].elements[0].distance.text; //each of which contains information about a leg of the route, from two locations within the given route.
+                                         for (var i = 0; i < myRoute.steps.length; i++) { //this response is able to produce step by step directions
+                                            document.getElementById("inst").value=myRoute.steps[i].instructions;
+                                             
+                                         }
+                                     
+                                 }
+                             });
+         
+                         }
+              $(document).on("pageinit", "#map_page", function() { //directions needed to call the functions to display map 
+                         startMap();
+                     });
+         
+                     $(document).on('click', '#submit', function() {//calls functions needed to get and display directions
+                         
+                         calcRoute();
+                     });
+         
+                     
+                 </script>
+             
+		
+    </body>
+</html>
