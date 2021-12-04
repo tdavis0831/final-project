@@ -21,17 +21,17 @@
 
  
   
-  <dl>
+
     {% for provider in provider_list %}
-        <dt>{{ provider['name'] }}</dt>
-        <dd>{{  provider['other'] }}</dd>
-        <dd>{{  provider['address'] }}</dd>
+        <p>{{ provider['name'] }}</p>
+        <p>{{  provider['other'] }}</p>
+        <p>{{  provider['address'] }}</p>
         
 
       
 
     {% endfor %}
-    </dl>
+    
         
       
     </li>

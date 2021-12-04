@@ -7,7 +7,7 @@ import api
 from jinja2 import StrictUndefined
 
 app = Flask(__name__)
-app.secret_key = ""
+app.secret_key = "fsdgsdfgsgf"
 app.jinja_env.undefined = StrictUndefined
 
 
