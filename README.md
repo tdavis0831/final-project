@@ -30,4 +30,4 @@ Users can sign up, login, and logout, as well as update their profiles.
 * Google Maps API
 
 ## About the Developer
-Jacqueline Huynh is a software developer living in the NYC area. 
+Tasha Davis is a software developer living in the NYC area. 
