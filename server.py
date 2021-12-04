@@ -281,12 +281,10 @@ def process_logout():
     return render_template('homepage.html')
 
 
-# @app.route("/map")
-# def get_map():
+@app.route("/map")
+def get_map():
 
-#     maps=api.map_this()
-
-#     return render_template("map.html", maps=maps)
+    return render_template("map.html")
 
 if __name__ == "__main__":
     # DebugToolbarExtension(app)
