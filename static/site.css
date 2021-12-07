@@ -37,7 +37,7 @@ body {
   #hpheader{
 	text-align:center;
 	font-family: 'Poppins', sans-serif;
-	size: 91px;
+	font-size: 80px;
 }
 
   .container-fluid div{
@@ -50,7 +50,7 @@ body {
 	line-height: 100px;
 	font-family: 'Oswald', sans-serif;
 font-family: 'Roboto', sans-serif;
-size: 72px;
+font-size: 20px;
 font-family: 'Lato', sans-serif;
 	
   }
