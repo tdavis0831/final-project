@@ -308,6 +308,12 @@ def get_map():
 
     return render_template("map.html")
 
+
+@app.route("/about")
+def get_about():
+
+    return render_template("about.html")
+
 if __name__ == "__main__":
     # DebugToolbarExtension(app)
     connect_to_db(app)
