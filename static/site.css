@@ -37,7 +37,7 @@ body {
   #hpheader{
 	text-align:center;
 	font-family: 'Poppins', sans-serif;
-	font-size: 80px;
+	font-size: 70px;
 }
 
   .container-fluid div{
@@ -50,7 +50,36 @@ body {
 	line-height: 100px;
 	font-family: 'Oswald', sans-serif;
 font-family: 'Roboto', sans-serif;
-font-size: 20px;
+font-size: 18px;
 font-family: 'Lato', sans-serif;
 	
   }
+.affcontainer{
+	position: fixed;
+	left: 50%;
+	bottom: 50px;
+	transform: translate(-50%, -50%);
+	margin: 0 auto;
+}
+
+#affirmation-btn{
+	background-color:black;
+	border: none;
+	color: white;
+	
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	margin: 4px 2px;
+
+	
+}
+#patitle{
+	font-family: 'Poppins', sans-serif;
+	font-size: 32px;
+	color:black
+}
+.subtitle{
+	font-family: 'Lato', sans-serif;
+}

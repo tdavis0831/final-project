@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, flash, session, redirect
 from model import connect_to_db
 import crud
 import api
+import random
 
 from jinja2 import StrictUndefined
 
@@ -10,7 +11,28 @@ app = Flask(__name__)
 app.secret_key = "fsdgsdfgsgf"
 app.jinja_env.undefined = StrictUndefined
 
+AFFIRMATIONS = [
+    "There are people out there who will help me.",
+    "How I feel matters.",
+    "I am happy to be me.",
+    "I matter.",
+    "I love myself for who I am.",
+    "I am worthy of love and happiness.",
+    "I treat myself with love and kindness.",
+    "My feelings are valid.",
+    "I deserve all the happiness in the world.",
+    "Reaching out for support shows strength.",
+    "I am allowed to have mental health struggles."
 
+
+]
+
+
+@app.route('/affirmations')
+def fortune():
+    """Return a single fortune as a text string (*not* the whole HTML page!)"""
+
+    return random.choice(AFFIRMATIONS)
 
 @app.route("/")
 def homepage():
