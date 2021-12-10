@@ -86,7 +86,7 @@ font-family: 'Lato', sans-serif;
 .affcontainer{
 	position: fixed;
 	left: 50%;
-	bottom: 50px;
+	bottom: 20px;
 	transform: translate(-50%, -50%);
 	margin: 0 auto;
 }
