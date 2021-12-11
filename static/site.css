@@ -74,6 +74,11 @@ body {
 	font-size: larger;
 
 }
+#sublog{
+	text-align:center;
+	font-family: 'Poppins', sans-serif;
+	font-size: 22px;
+}
 
   #disclaimer{
 	text-align: center;
@@ -89,6 +94,9 @@ font-family: 'Lato', sans-serif;
 	bottom: 20px;
 	transform: translate(-50%, -50%);
 	margin: 0 auto;
+}
+#sign-in{
+	font-family: 'Lato', sans-serif;
 }
 
 #affirmation-btn{

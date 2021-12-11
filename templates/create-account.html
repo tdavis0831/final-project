@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
-{%block title%}Login Page {% endblock %}
+{%block title%} {% endblock %}
 
 {%block body %}
 
-<h1>Welcome to the login page!</h1>
+<h1 class="title"> Welcome to the login page!</h1>
 
-<h2>Provide an email and password to create account</h2>
-<form action="/users" method="POST">
+<h2 id="sublog">To create a login, please complete the form below. If you are a returning user, please login.</h2>
+<form action="/users" method="POST" id="sign-in">
   <p>
     First Name <input type="text" name="name">
   </p>

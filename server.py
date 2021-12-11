@@ -46,7 +46,10 @@ def create_account():
 
     return render_template("create-account.html")
 
+@app.route("/resources")
+def resources():
 
+    return render_template("assessmentinfo.html")
 
 
 @app.route("/users", methods=["POST"])
