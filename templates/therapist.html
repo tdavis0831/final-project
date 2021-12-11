@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}provider list{% endblock %}
+{% block title %}{% endblock %}
 
 
 {% block body %}
@@ -17,19 +17,20 @@
 
 
 
-  <h1>provider list</h1>
+  <h1>Providers within 10 miles in your search area:</h1>
 
- 
   
 
     {% for provider in provider_list %}
         <p>{{ provider['name'] }}</p>
         <p>{{  provider['other'] }}</p>
-        <p>{{  provider['address'] }}</p>
+		
+		{%for a in provider['address']%}
+        <p>{{ a }}</p>
         
 
       
-
+		{% endfor %}
     {% endfor %}
     
         

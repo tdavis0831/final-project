@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
-{% block title %}Anxiety{% endblock %}
+{% block title %}{% endblock %}
 
 
 {% block body %}
+
   <h1>Anxiety</h1>
 
  
-  <form action="/answers" method="post">
+  <form id="aq" action="/answers" method="post">
   {% for i in question %}
   <label for="aquestions">
    
@@ -25,5 +26,6 @@
   {% endfor %}
   <p><input type="submit"></p>
 </form>
+
 <a href="/login">Return Home</a>
 {% endblock %}

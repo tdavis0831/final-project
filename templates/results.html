@@ -1,24 +1,28 @@
 {% extends 'base.html' %}
 
-{%block title%}Results page {% endblock %}
+{%block title%}{% endblock %}
 
 {%block body %}
 
-<h1>See how you scored</h1>
+<h3>Your scores compared to the baseline. If your score is higher than the baseline, it is 
+  suggested that you reach out to a mental health provider for follow up.
+</h3>
 
 
   <ul>
     <li>
-      <h1>the total score of your answers was  {{ answers }}</h1>
+      <h1>The total score of your answers was  {{ answers }}</h1>
         
          
-      <h2> A healthy score for this test is {{baselines}} or below</h2>
-      <h2>Your individual scores were </h2>
+      <h2> A healthy baseline for for this test is {{baselines}} or below</h2>
+      
+      <div id="rdiv">
+      <h2>Assessment questions and your responses: </h2>
     
 
 
     
-      <table style="width:100px; border: 1px solid black">
+      <table style="width:1000px; border: 1px solid black">
         <tr>
             {% for q in anxiety_questions %}
                 <th>{{ q.question }}</th>
@@ -34,15 +38,15 @@
               
         
         </table>
-      
+      </div>
     
       
-      <p>To find a list of mental health providers in your area, please 
-        click <a href="/therapist" target="_blank">HERE</a>
-      </p>
+      <h1>To find a list of mental health providers in your area, please 
+        click <a href="/therapist" target="_blank">HERE</h1>
+      
 
 
-      <a href="/login">Return Home</a>        
+ 
               
 
 

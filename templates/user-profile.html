@@ -1,12 +1,20 @@
 {% extends 'base.html' %}
-{% block title %}user{% endblock %}
-
+{% block title %} {% endblock %}
+ 
 
 {% block body %}
-  <h1>Welcome {{ session["name"] }}, Pick any of the following assessments to begin</h1>
 
- <a href="/anxiety">Anxiety</a>
- <a href="/depression">Depression</a>
- <a href="/insomnia">Insomnia</a>  
+  <h1 id="wtitle" >Welcome {{ session["name"] }}, choose from any of the following assessments to begin:</h1>
+
+  <div class="about">
+  <p>To take an assessment regarding symptoms of anxiety,
+ <a href="/anxiety">Click Here</a></p>
+
+ <p>To take an assessment regarding symptoms of depression,
+  <a href="/depression">Click Here</a></p>
+  <p>To take an assessment regarding symptoms of insomnia,
+    <a href="/insomnia">Click Here</a></p> 
+  </div>
+
   
 {% endblock %}
