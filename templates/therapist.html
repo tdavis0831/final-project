@@ -17,12 +17,12 @@
 
 
 
-  <h1>Providers within 10 miles in your search area:</h1>
+  <h1 id="pheader">Providers within 10 miles in your search area:</h1>
 
   
 
     {% for provider in provider_list %}
-        <p>{{ provider['name'] }}</p>
+        <p id="provider">{{ provider['name'] }}</p>
         <p>{{  provider['other'] }}</p>
 		
 		{%for a in provider['address']%}
@@ -35,7 +35,7 @@
     
         
       
-
+<div id="map">
 <a href="./map">Click Here to get directions to the provider's office!</a>
-
+</div>
 {% endblock %}

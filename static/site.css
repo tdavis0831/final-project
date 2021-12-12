@@ -56,6 +56,26 @@ body {
 	font-family: 'Poppins', sans-serif;
 	font-size: 64px;
 }
+#pheader{
+	text-align:center;
+	font-family: 'Poppins', sans-serif;
+	font-size: 42px;
+}
+#map{
+	position:absolute;
+    top:195px;
+    right: 10px;
+
+	width: 400px; 
+	padding: 60px;
+	word-wrap: break-word;
+	font-family: 'Lato', sans-serif;
+	font-size: larger;
+
+}
+a{
+	color:black;
+}
 
   .container-fluid div{
 	display: flex;
@@ -72,8 +92,43 @@ body {
 
 }
 
+#get{	position:absolute;
+    top:195px;
+    right: 10px;
 
+	width: 400px; 
+	padding: 60px;
+	word-wrap: break-word;
+	font-family: 'Lato', sans-serif;
+	font-size: larger;
 
+	
+
+}
+#therap{
+	position:absolute;
+    top:195px;
+    right: 10px;
+
+	width: 400px; 
+	padding: 60px;
+	word-wrap: break-word;
+	font-family: 'Lato', sans-serif;
+	font-size: larger;
+
+}
+#mh{
+	margin-top:10px;
+}
+#resp{
+	position: absolute;
+	margin-top:100px;
+	font-size: 12px;
+	font-family: 'Lato', sans-serif;
+}
+#results{
+	margin-top:200px;
+}
 
 #aboutopp{
 	position:absolute;
@@ -87,8 +142,19 @@ body {
 	font-size: larger;
 
 }
+
+
+	
 #aq{
 	color:white;
+	
+	text-align: center;
+	font-size: 18px;
+	
+}
+#provider{
+	text-decoration: underline;
+	font-family: 'Lato', sans-serif;
 }
 
 #aboutmove{
@@ -163,4 +229,3 @@ font-family: 'Lato', sans-serif;
 	color:black;
 	text-align: center;
 }	
-}
