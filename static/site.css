@@ -32,8 +32,9 @@ body {
 	
 }
 .nav-item{
-	margin-left:80px;
-	margin-right:80px;
+	margin-left:60px;
+	margin-right:60px;
+	font-size: 16px;
 }
 
 #footer {
@@ -72,6 +73,11 @@ body {
 	font-family: 'Lato', sans-serif;
 	font-size: larger;
 
+}
+#mapc{
+	padding: 1em;
+    height: 5%;
+	background-color: #6D9886;
 }
 a{
 	color:black;
@@ -120,6 +126,13 @@ a{
 #mh{
 	margin-top:10px;
 }
+
+
+#mapinput{
+		text-align:center;
+	font-family: 'Poppins', sans-serif;
+	font-size: 18px;
+}
 #resp{
 	position: absolute;
 	margin-top:100px;
@@ -142,12 +155,12 @@ a{
 	font-size: larger;
 
 }
-
-
 	
 #aq{
-	color:white;
-	
+	padding: 1em;
+    height: 5%;
+
+	background-color: #6D9886;
 	text-align: center;
 	font-size: 18px;
 	
@@ -160,7 +173,7 @@ a{
 #aboutmove{
 	position: absolute;
 	bottom: 0;
-	font-size: 12px;
+	font-size: 16px;
 	font-family: 'Lato', sans-serif;
 
 }
@@ -181,6 +194,18 @@ a{
 	font-size: 18px;
 	
 }
+#sb{	position:absolute;
+    top:90px;
+    right: 775px;
+
+	width: 800px; 
+	padding: 60px;
+	word-wrap: break-word;
+	font-family: 'Lato', sans-serif;
+	font-size: larger;
+
+
+}
 
   #disclaimer{
 	text-align: center;
@@ -197,7 +222,7 @@ font-family: 'Lato', sans-serif;
 	transform: translate(-50%, -50%);
 	margin: 0 auto;
 }
-#sign-in{
+.sign-in{
 	font-family: 'Lato', sans-serif;
 }
 

@@ -5,7 +5,7 @@
 {% block body %}
 
 <div>
-<form action="/therapist" method="POST">
+<form action="/therapist" method="POST" id="sb">
 	<p>
 	  What city, state would you like to search? <input type="text" name="city">
 
@@ -14,12 +14,13 @@
 		<input type="submit">
 	  </p>
 	</form>
-
+</div>
+<div>
 
 
   <h1 id="pheader">Providers within 10 miles in your search area:</h1>
-
-  
+</div>  
+  <div id="results"></div>
 
     {% for provider in provider_list %}
         <p id="provider">{{ provider['name'] }}</p>
@@ -33,9 +34,9 @@
 		{% endfor %}
     {% endfor %}
     
-        
+   
       
 <div id="map">
-<a href="./map">Click Here to get directions to the provider's office!</a>
+<a href="./map" target="blank">Click Here to get directions to the provider's office!</a>
 </div>
 {% endblock %}

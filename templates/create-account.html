@@ -7,7 +7,10 @@
 <h1 class="title"> Welcome to the login page!</h1>
 
 <h2 id="sublog">To create a login, please complete the form below. If you are a returning user, please login.</h2>
-<form action="/users" method="POST" id="sign-in">
+
+<h2>New User? </h2>
+<form action="/users" method="POST" class="sign-in">
+
   <p>
     First Name <input type="text" name="name">
   </p>
@@ -29,8 +32,8 @@
   </form>
 
 
-  <h2>Returning User? Log In</h2>
-  <form action="/login" method="POST">
+  <h2>Returning User? </h2>
+  <form action="/login" method="POST" class="sign-in">
     <p>
       Email <input type="text" name="email">
     </p>

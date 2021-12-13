@@ -1,21 +1,23 @@
 {% extends 'base.html' %}
-{% block title %}provider list{% endblock %}
+{% block title %}{% endblock %}
 
 
 {% block body %}
 
   <div data-role="page" id="map_page">
     <div data-role="header">
-        <h1>Get Directions</h1>
+        <h1 class="title">Get Directions</h1>
     </div>
    
-            <div id="mapc" style="height:300px;"></div>
+            <div id="mapc" style="height:400px;"></div>
+
+            <div id="mapinput">
              From: <input type="text" id="from" >
              <br/><br/>
              To:  <input type="text" id="to">
             <br/><br/><br/>
             <a data-icon="search" data-role="button" href="#" id="submit">Get directions</a>
-           
+           </div>
         
         <div id="results" style="display:none;">
             <div id="directions"></div>
