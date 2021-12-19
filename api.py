@@ -2,14 +2,15 @@ import requests
 import json
 from pprint import pprint
 import server
+import os
 def get_therapist_info(city):
 	
 	textChoice = "Therapist"
-
-	API_key = ''
+	
+	API_key = os.environ['YELP_API']
 	client_id = 'Your Client ID'
 	ENDPOINT = 'https://api.yelp.com/v3/businesses/search'
-	HEADERS = {'Authorization': 'Bearer '}
+	HEADERS = {'Authorization': f'Bearer {API_key}'}
 
 	PARAMETERS = {
 		'term' : textChoice,
